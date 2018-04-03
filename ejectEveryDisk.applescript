@@ -6,7 +6,7 @@
 
 
 
--- It does the following steps:
+-- It takes the following steps:
 
 -- 1. Hide all the windows to show the Finder Desktop
 -- 2. Count the **mounted** disks
