@@ -2,6 +2,10 @@
 
 juanfal 2018-04-03
 This AppleScript can be executed at any moment in a Mac.
+It doen's depend on any external routine and only call a shell command to
+  play sounds
+
+
 
 It does the following steps:
 

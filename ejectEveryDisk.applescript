@@ -1,6 +1,10 @@
 -- mac-osx-eject-every-disk
 -- juanfal 2018-04-03
 -- This AppleScript can be executed at any moment in a Mac.
+-- It doen's depend on any external routine and only call a shell command to
+--   play sounds
+
+
 
 -- It does the following steps:
 
@@ -33,13 +37,13 @@ play("Glass", 1)
 -- say "Start ejecting disks"
 try
 	-- tell application "Finder" to eject (every disk whose startup is false and free space > 0)
-	repeat with disco in extraMountedDisks
-		tell application "Finder" to eject disco
+	repeat with theDisk in extraMountedDisks
+		tell application "Finder" to eject theDisk
 	end repeat
 on error
 	play("Basso", 1)
 	say "Error expulsando discos"
-	display notification "Error" with title "Ejecting every disk"
+	display notification "Error ejecting disks" with title "Ejecting every disk"
 
 end try
 set extraMountedDisks to disksExtra()
@@ -63,15 +67,10 @@ hideshowwindows()
 
 
 
-
-
-
-
-
-
+-- FUNCTIONS ---------------------------
 
 on hideshowwindows()
-	delay 1
+	delay 1  -- wait for the user to free modifiers keys
 	tell application "System Events" to key code 103 -- F9 - Expose All Windows
 end hideshowwindows
 
@@ -83,9 +82,10 @@ on disksExtra()
 	set r to {}
 	tell application "System Events" to set the end of toIgnore to the name of startup disk
 	tell application "System Events" to set mountedDisks to name of every disk
-	repeat with i from 1 to count mountedDisks
-		set x to mountedDisks's item i
-		if (last character of x is not "@") and (x is not in toIgnore) then set end of r to mountedDisks's item i
+	repeat with x in mountedDisks
+		if x is not in toIgnore then
+			set end of r to x
+		end if
 	end repeat
 	return r
 end disksExtra
