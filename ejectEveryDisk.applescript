@@ -1,5 +1,5 @@
 -- mac-osx-eject-every-disk
--- juanfal 2018-04-03
+-- -- juanfal 2018-04-03
 -- This AppleScript can be executed at any moment in a Mac.
 -- It doen's depend on any external routine and only call a shell command to
 --   play sounds
@@ -17,6 +17,10 @@
 -- Note that the delays are there to allow you to free the keyboard modifiers
 -- (I'm supposing you are using a keyboard shortcut to launch this script) so
 -- the system does not see any key modifier pressed
+
+-- NOTE: I'm using *QuickSilver* to trigger-launch (Execute) this script and
+-- using the shortcut: Opt-F12
+
 
 hideshowwindows()
 set extraMountedDisks to disksExtra()
