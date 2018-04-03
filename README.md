@@ -17,3 +17,5 @@ It takes the following steps:
 Note that the delays are there to allow you to free the keyboard modifiers
 (I'm supposing you are using a keyboard shortcut to launch this script) so
 the system does not see any key modifier pressed
+
+NOTE: I'm using *QuickSilver* to trigger-launch (Execute) this script and using the shortcut: Opt-F12
