@@ -74,7 +74,7 @@ hideshowwindows()
 -- FUNCTIONS ---------------------------
 
 on hideshowwindows()
-	delay 1  -- wait for the user to free modifiers keys
+	delay 1 -- wait for the user to free modifiers keys
 	tell application "System Events" to key code 103 -- F9 - Expose All Windows
 end hideshowwindows
 
@@ -88,7 +88,7 @@ on disksExtra()
 	tell application "System Events" to set mountedDisks to name of every disk
 	repeat with x in mountedDisks
 		if x is not in toIgnore then
-			set end of r to x
+			set end of r to x as string
 		end if
 	end repeat
 	return r
